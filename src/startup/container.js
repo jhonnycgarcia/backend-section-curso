@@ -23,6 +23,9 @@ const { HomeController } = require('../controllers');
 const { HomeRoutes } = require('../routes/index.routes');
 const Routes = require('../routes'); // Importar enrutador global
 
+// Models - Modelos
+const { Comment, Idea, User } = require('../models');
+
 // Container
 const container = createContainer(); // -- Crear contenedor
 container
@@ -39,6 +42,11 @@ container
     })
     .register({ // Inyectar Rutas
         HomeRoutes: asFunction(HomeRoutes).singleton()
+    })
+    .register({ // Inyectar Modeos
+        User: asValue(User),
+        Idea: asValue(Idea),
+        Comment: asValue(Comment)
     });
 
 module.exports = container; // Exportar Contenedor
