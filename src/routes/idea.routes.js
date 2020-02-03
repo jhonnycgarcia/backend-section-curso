@@ -1,6 +1,9 @@
 const { Router } = require('express'); // -- Importar enrutador
+const { AuthMiddleware, ParseIntMiddleware } = require('../middlewares');
 module.exports = function({ IdeaController }) { // Inyectar controlador AWILIX
     const router = Router(); // Invocar enrutador de express
+
+    router.use([AuthMiddleware, ParseIntMiddleware]);
 
     router.get('/', IdeaController.getAll);
     router.get('/:ideaId', IdeaController.get);
