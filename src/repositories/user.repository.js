@@ -9,7 +9,7 @@ class UserRepository extends BaseRepository {
     }
 
     async getUserByUsername(username) { // Obtener usuario por nombre
-        return await _user.findOne({ userName: { $regex: new RegExp(username, 'i') } })
+        return await _user.findOne({ username: { $regex: new RegExp(username, 'i') } })
     }
 }
 module.exports = UserRepository;
