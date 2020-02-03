@@ -8,7 +8,13 @@ const compression = require('compression'); // Comprimir peticiones HTTP
 require('express-async-errors'); // Capturar excepciones de las Promesas ASYNC
 const { NotFoundMiddleware, ErrorMiddleware } = require('../middlewares'); // Cargar Middlewares de error
 
-module.exports = function({ HomeRoutes, UserRoutes, IdeaRoutes, CommentRoutes }) { // Recibe las rutas requeridas
+module.exports = function({
+    HomeRoutes,
+    UserRoutes,
+    IdeaRoutes,
+    CommentRoutes,
+    AuthRoutes
+}) { // Recibe las rutas requeridas
     const router = express.Router(); // Enrutador global
     const apiRoutes = express.Router(); // Enrutador de la API
 
@@ -29,6 +35,7 @@ module.exports = function({ HomeRoutes, UserRoutes, IdeaRoutes, CommentRoutes })
     apiRoutes.use("/user", UserRoutes);
     apiRoutes.use("/idea", IdeaRoutes);
     apiRoutes.use("/comment", CommentRoutes);
+    apiRoutes.use("/auth", AuthRoutes);
 
 
     // -----------------------------------

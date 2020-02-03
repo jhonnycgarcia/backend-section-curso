@@ -18,7 +18,8 @@ const {
     HomeService,
     CommentService,
     IdeaService,
-    UserService
+    UserService,
+    AuthService
 } = require('../services');
 
 // Controllers - Controladores
@@ -26,7 +27,8 @@ const {
     HomeController,
     UserController,
     CommentController,
-    IdeaController
+    IdeaController,
+    AuthController,
 } = require('../controllers');
 
 // Routes - Rutas
@@ -34,7 +36,8 @@ const {
     HomeRoutes,
     CommentRoutes,
     IdeaRoutes,
-    UserRoutes
+    UserRoutes,
+    AuthRoutes
 } = require('../routes/index.routes');
 const Routes = require('../routes'); // Importar enrutador global
 
@@ -56,19 +59,22 @@ container
         HomeService: asClass(HomeService).singleton(),
         IdeaService: asClass(IdeaService).singleton(),
         UserService: asClass(UserService).singleton(),
-        CommentService: asClass(CommentService).singleton()
+        CommentService: asClass(CommentService).singleton(),
+        AuthService: asClass(AuthService).singleton()
     })
     .register({ // Inyectar Controlador
         HomeController: asClass(HomeController.bind(HomeController)).singleton(),
         UserController: asClass(UserController.bind(UserController)).singleton(),
         IdeaController: asClass(IdeaController.bind(IdeaController)).singleton(),
-        CommentController: asClass(CommentController.bind(CommentController)).singleton()
+        CommentController: asClass(CommentController.bind(CommentController)).singleton(),
+        AuthController: asClass(AuthController.bind(AuthController)).singleton()
     })
     .register({ // Inyectar Rutas
         HomeRoutes: asFunction(HomeRoutes).singleton(),
         IdeaRoutes: asFunction(IdeaRoutes).singleton(),
         UserRoutes: asFunction(UserRoutes).singleton(),
-        CommentRoutes: asFunction(CommentRoutes).singleton()
+        CommentRoutes: asFunction(CommentRoutes).singleton(),
+        AuthRoutes: asFunction(AuthRoutes).singleton()
     })
     .register({ // Inyectar Modelos
         User: asValue(User),
