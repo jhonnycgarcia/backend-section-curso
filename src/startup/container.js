@@ -30,7 +30,12 @@ const {
 } = require('../controllers');
 
 // Routes - Rutas
-const { HomeRoutes } = require('../routes/index.routes');
+const {
+    HomeRoutes,
+    CommentRoutes,
+    IdeaRoutes,
+    UserRoutes
+} = require('../routes/index.routes');
 const Routes = require('../routes'); // Importar enrutador global
 
 // Models - Modelos
@@ -60,7 +65,10 @@ container
         CommentController: asClass(CommentController.bind(CommentController)).singleton()
     })
     .register({ // Inyectar Rutas
-        HomeRoutes: asFunction(HomeRoutes).singleton()
+        HomeRoutes: asFunction(HomeRoutes).singleton(),
+        IdeaRoutes: asFunction(IdeaRoutes).singleton(),
+        UserRoutes: asFunction(UserRoutes).singleton(),
+        CommentRoutes: asFunction(CommentRoutes).singleton()
     })
     .register({ // Inyectar Modelos
         User: asValue(User),
