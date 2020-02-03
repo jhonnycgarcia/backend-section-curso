@@ -23,8 +23,8 @@ class BaseService {
         return currentEntity;
     }
 
-    async getAll() {
-        const allEntity = await this.repository.getAll();
+    async getAll(pageSize, pageNum) {
+        const allEntity = await this.repository.getAll(pageSize, pageNum);
         if (!allEntity) {
             const error = new Error();
             error.status = 404;
@@ -46,7 +46,7 @@ class BaseService {
             throw error;
         }
 
-        return this.repository.update(id, entity);
+        return await this.repository.update(id, entity);
     }
 
     async delete(id) {
@@ -56,7 +56,7 @@ class BaseService {
             error.message = 'Id must be sent';
             throw error;
         }
-        return this.repository.delete(id);
+        return await this.repository.delete(id);
     }
 }
 

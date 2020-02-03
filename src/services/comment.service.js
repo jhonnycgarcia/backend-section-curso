@@ -16,7 +16,7 @@ class CommentService extends BaseService {
             throw error;
         }
 
-        const idea = _ideaRepository.get(ideaId);
+        const idea = await _ideaRepository.get(ideaId);
 
         if (!idea) {
             const error = new Error();
@@ -37,7 +37,7 @@ class CommentService extends BaseService {
             throw error;
         }
 
-        const idea = _ideaRepository.get(ideaId);
+        const idea = await _ideaRepository.get(ideaId);
 
         if (!idea) {
             const error = new Error();
@@ -48,7 +48,7 @@ class CommentService extends BaseService {
 
         const createComment = await _commentRepository.createComment(comment);
         idea.comments.push(createComment);
-        return _ideaRepository.update(ideaId, { comments: idea.comments });
+        return await _ideaRepository.update(ideaId, { comments: idea.comments });
     }
 }
 
