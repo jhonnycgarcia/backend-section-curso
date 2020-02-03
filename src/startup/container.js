@@ -14,7 +14,12 @@ const app = require('.');
  *             Importar
  ================================== */
 // Services - Servicios
-const { HomeService } = require('../services');
+const {
+    HomeService,
+    CommentService,
+    IdeaService,
+    UserService
+} = require('../services');
 
 // Controllers - Controladores
 const { HomeController } = require('../controllers');
@@ -38,7 +43,10 @@ container
         config: asValue(config) // inyectar variables de configuracion
     })
     .register({ // Inyectar Servicio
-        HomeService: asClass(HomeService).singleton()
+        HomeService: asClass(HomeService).singleton(),
+        IdeaService: asClass(IdeaService).singleton(),
+        UserService: asClass(UserService).singleton(),
+        CommentService: asClass(CommentService).singleton()
     })
     .register({ // Inyectar Controlador
         HomeController: asClass(HomeController.bind(HomeController)).singleton()
