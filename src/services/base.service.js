@@ -1,5 +1,5 @@
 class BaseService {
-    constructor({ repository }) {
+    constructor(repository) {
         this.repository = repository;
     }
 
@@ -24,15 +24,13 @@ class BaseService {
     }
 
     async getAll() {
-        const allEntity = this.repository.getAll();
-        if (!currentEntity || currentEntity.length === 0) {
+        const allEntity = await this.repository.getAll();
+        if (!allEntity) {
             const error = new Error();
             error.status = 404;
             error.message = 'Not found entitys';
             throw error;
         }
-
-        allEntity.total = allEntity.length;
         return allEntity;
     }
 
