@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const CommentSchema = new Schema({
     comment: { type: String, required: true },
-    author: { type: Schema.Types.ObjectId, ref: 'user', required: true, autopopulate: true }
+    author: { type: Schema.Types.ObjectId, ref: 'User', required: true, autopopulate: true }
 }, { timestamps: { createdAt: true, updatedAt: true } });
 
 /**
