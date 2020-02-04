@@ -9,7 +9,7 @@ class IdeaRepository extends BaseRepository {
     }
 
     async getUserIdeas(author) { // Obtener ideas del usuario
-        return await _idea.find({ author: { $regex: new RegExp(author, 'i') } });
+        return await _idea.find({ author });
     }
 
 }
