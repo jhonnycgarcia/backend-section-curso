@@ -8,6 +8,10 @@ const compression = require('compression'); // Comprimir peticiones HTTP
 require('express-async-errors'); // Capturar excepciones de las Promesas ASYNC
 const { NotFoundMiddleware, ErrorMiddleware } = require('../middlewares'); // Cargar Middlewares de error
 
+const swaggerUI = require('swagger-ui-express'); // Libreria para documentacion
+const { SWAGGER_PATH } = require('../config'); // PATH Swagger
+const swaggerDocument = require('../config/swagger/swaggerDEV.json'); // Cargar documento
+
 module.exports = function({
     HomeRoutes,
     UserRoutes,
@@ -42,7 +46,7 @@ module.exports = function({
     //   Establecer prefijo en la ruta
     // -----------------------------------
     router.use("/v1/api", apiRoutes);
-    router.use("/v1/api", apiRoutes);
+    router.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument)); // Cargar ruta para documentacion
 
     /** ==================================
     *     Cargar Middlewares de rutas 
