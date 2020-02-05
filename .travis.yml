@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+    - stable
+deploy:
+    provider: heroku
+    app: jhonnycgarcia-shareyouridea
+    apli_key:
+        secure: rEqeRhA+l/1P9ziS7NYI8Wlcz+4SC0mBwQEOzcY/QdGUspzWgOe4rFWDY8TzAoT2GdfB2ytZRHkscVV3Cv+kusjRT8n8V/VP/4vmotsjphFyp5cdCas9xBzAcTH79vUUzuci9NAPmbPzK0Q+NATFzYxiAOGw0Qs+bI/nUxywjJMJttHnUOocRJsCofejt4Lg+HUcD7vB4NLPdK7ZY32L73baVwKGeRwYresrNrRvCqJ9nUEaaKMCzYA21K5ZjtTBS5CXfkk7soj1z1sVtMzyTfSRu1BoeNABhbCWH3pYWcAgIcdEAI4NBlS2SkSnklMghRFfiBosc2Eeliq9+iZ37sQxMWXoXQ7EFlS2kONPZfBYmkAzLLVhyo5AUPymUlzFBmevu4K2EisjpvDgTQSVUCYrxDPj2dve0aNV1GUTOnWlI1NGr4Jt/9Lbgy1f6X8nWxW6nuvanxajdKkydoyQNTWfvKnNatHLHFyfUpJSI5VgKSrYOV3i32dmRu8pw2r8I1tdn57zQDS0vJpLjj728GAXdVTFc6BgTf1zArvSEtyXEXSyVIB9r6uwI8VaNgRY2qrQMippVRZXDCj+G+fOSiwwi51zEHwLqV86K4DsZxMLQDvZnjLD99Pc2NI5tyeWxoChvmZc/az5BJQ+I8gM3QnnKb2rb+IFYGKyx9JsqQE=
